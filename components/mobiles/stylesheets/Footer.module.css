@@ -1,0 +1,33 @@
+
+.footerCredit {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    color: #607790 ;
+  }
+  
+  .footerCredit p {
+    margin: 0;
+  }
+  
+  .footer {
+    background-color: #5b4f4f;
+    color: #fff;
+    padding: 30px 0;
+  }
+  
+  .footerContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .styles.footerCredit {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  

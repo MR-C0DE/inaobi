@@ -1,0 +1,99 @@
+.NavigationBar {
+  border-top: 1px solid #d5d5d5;
+  background-color: #ffffff;
+  display: none;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.nav li {
+  margin-right: 10px;
+
+  padding: 10px 4px;
+}
+
+.selected {
+  border-bottom: 5px solid #067790;
+}
+
+.nav a {
+  color: rgb(59, 58, 58);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #ffd700;
+}
+
+.search {
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dedede;
+  border-radius: 30px;
+}
+
+.search input {
+  width: 18rem;
+  border: none;
+  margin: 3px 10px;
+
+  background-color: #dedede;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.addBtn {
+  background-color: #067790;
+  color: #ffffff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 30px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .NavigationBar {
+    background-color: rgb(41, 41, 41);
+    border-top: none;
+  }
+
+  .logo a {
+    color: #0abab5;
+  }
+
+  .addBtn {
+    background-color: #0abab5;
+  }
+
+  .selected {
+    border-bottom: 5px solid #0abab5;
+  }
+}
+
+/* Styles spécifiques pour les appareils mobiles */
+@media only screen and (max-width: 600px) {
+  .NavigationBar {
+    display: block;
+  }
+}
+
+/* Styles spécifiques pour les tablettes */
+@media only screen and (min-width: 601px) and (max-width: 700px) {
+  .NavigationBar {
+    display: block;
+  }
+}

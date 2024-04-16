@@ -1,0 +1,53 @@
+# Ignore les dossiers et fichiers spécifiques à Next.js
+node_modules
+.next
+out
+
+# Ignore les fichiers de build
+/build
+
+# Ignore les fichiers d'environnement locaux (si utilisés)
+.env.local
+.env.*.local
+
+# Ignore les fichiers de cache
+.cache
+.next-cache
+
+# Ignore les fichiers de logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore les fichiers temporaires
+.pnp
+.pnp.js
+
+# Ignore les fichiers de configuration
+.env.production.local
+.env.test.local
+.env.development.local
+
+# Ignore les fichiers de sauvegarde
+.DS_Store
+Thumbs.db
+
+# Ignore les fichiers d'éditeurs spécifiques
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore les fichiers d'histoires de versionnement
+.history
+
+# Ignore les fichiers de dépendances spécifiques à un système d'exploitation
+.DS_Store
+Thumbs.db
+
+# Ignore les fichiers de cache du package manager
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm

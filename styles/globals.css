@@ -1,0 +1,12 @@
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(249, 249, 249);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(20, 20, 20);
+    color: #fff;
+  }
+}

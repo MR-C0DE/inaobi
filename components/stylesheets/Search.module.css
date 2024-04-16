@@ -1,0 +1,28 @@
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000056;
+
+}
+
+.search {
+  background-color: #fff;
+  width: 40rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  padding: 1em;
+}
+
+@media (prefers-color-scheme: dark) {
+  .container {
+    background-color: #363636e6;
+  }
+
+  .search {
+    background-color: #161616;
+    border: none;
+  }
+}

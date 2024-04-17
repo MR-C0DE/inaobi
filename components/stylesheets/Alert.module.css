@@ -1,0 +1,112 @@
+/* alert.module.css */
+
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    max-width: 90%;
+    padding: 20px;
+    background-color: #292929; /* Fond sombre */
+    border-radius: 25px; /* Coins plus arrondis */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Ombre sombre */
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Fond légèrement transparent, sombre */
+    z-index: 999;
+}
+
+.heading {
+    margin-bottom: 15px; /* Plus d'espace en bas du titre */
+    font-size: 1.5rem; /* Taille de police encore plus grande pour le titre */
+    font-weight: bold; /* Gras pour mettre en évidence */
+    color: #fff; /* Texte blanc */
+}
+
+.alertInfo {
+    background-color: #0abab5; /* Fond bleu pastel pour le prompt en mode clair */
+    box-shadow: 0px 0px 20px rgba(10, 186, 181, 0.5); /* Ombre bleue douce */
+}
+.message{
+    margin: 2rem 0;
+    color:#fff
+}
+.btn {
+    padding: 10px 20px; /* Plus de rembourrage pour les boutons */
+    border-radius: 15px; /* Coins arrondis pour les boutons */
+    font-size: 1.2rem; /* Taille de police légèrement plus grande pour les boutons */
+}
+
+.btnPrimary {
+    background-color: #067790; /* Fond bleu pour le bouton OK */
+    border: none; /* Pas de bordure */
+    color: #fff; /* Texte blanc */
+}
+
+.btnPrimary:hover {
+    background-color: #0abab5; /* Légère variation de couleur au survol */
+}
+
+.btnSecondary {
+    background-color: #333; /* Fond sombre pour le bouton Cancel */
+    border: none; /* Pas de bordure */
+    color: #fff; /* Texte blanc */
+}
+
+.btnSecondary:hover {
+    background-color: #555; /* Légère variation de couleur au survol */
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 80%;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .container {
+        background-color: #292929; /* Fond sombre en mode sombre */
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Ombre sombre */
+    }
+
+    .backdrop {
+        background-color: rgba(0, 0, 0, 0.5); /* Fond sombre pour le fond flou en mode sombre */
+    }
+
+    .heading {
+        color: #fff; /* Texte blanc en mode sombre */
+    }
+
+    .alertInfo {
+        background-color: #0abab5; /* Fond bleu pastel pour le prompt en mode sombre */
+        box-shadow: 0px 0px 20px rgba(10, 186, 181, 0.5); /* Ombre bleue douce */
+    }
+
+    .message{
+        color: #fff;
+    }
+
+    .btnPrimary {
+        background-color: #067790; /* Fond bleu pour le bouton OK en mode sombre */
+    }
+
+    .btnPrimary:hover {
+        background-color: #0abab5; /* Variation de couleur au survol pour le bouton OK en mode sombre */
+    }
+
+    .btnSecondary {
+        background-color: #333; /* Fond sombre pour le bouton Cancel en mode sombre */
+        color: #fff; /* Texte blanc pour le bouton Cancel en mode sombre */
+    }
+
+    .btnSecondary:hover {
+        background-color: #555; /* Variation de couleur au survol pour le bouton Cancel en mode sombre */
+    }
+}

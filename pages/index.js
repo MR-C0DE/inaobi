@@ -5,6 +5,7 @@ import NavigationBar from "@/components/mobiles/NavigationBar";
 import Head from "next/head";
 import UAParser from 'ua-parser-js';
 import HeaderMobile from '@/components/mobiles/HeaderMobile';
+import Alert from '@/components/Alert';
 
 export default function Home() {
   const [windowSize, setWindowSize] = useState({
@@ -55,7 +56,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <Alert title={"Important"} message={"Ce site est en construction"} />
       {deviceType === "mobile" ? <HeaderMobile /> : <Header screenWidth={windowSize.width} />}
       
       <main className='container mx-auto'>

@@ -1,7 +1,7 @@
 
 
 import React, { useState } from 'react';
-import styles from './stylesheets/alert.module.css';
+import styles from './stylesheets/Alert.module.css';
 
 const SimpleAlert = ({ title, message }) => {
   const [isVisible, setIsVisible] = useState(true);

@@ -1,4 +1,4 @@
-// Alert.js
+
 
 import React, { useState } from 'react';
 import styles from './stylesheets/alert.module.css';

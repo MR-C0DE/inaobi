@@ -4,6 +4,15 @@ body {
   background-color: rgb(249, 249, 249);
 }
 
+.container{
+  margin-top:  3.4rem;
+  padding: .6rem;
+}
+
+.mob-container{
+ 
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: rgb(20, 20, 20);

@@ -1,51 +1,16 @@
-import { useState, useEffect } from 'react';
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import NavigationBar from "@/components/mobiles/NavigationBar";
-import Head from "next/head";
-import UAParser from 'ua-parser-js';
+import React from 'react';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import NavigationBar from '@/components/mobiles/NavigationBar';
+import Head from 'next/head';
 import HeaderMobile from '@/components/mobiles/HeaderMobile';
 
+import { useScreenSize } from '@/contexts/ScreenSizeContext';
+import { useTypeDevice } from '@/contexts/DeviceTypeContext';
+
 export default function Forum() {
-  const [windowSize, setWindowSize] = useState({
-    width: 0,
-    height: 0
-  });
-  const [deviceType, setDeviceType] = useState('');
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
-    };
-
-    // Vérifier si window est défini (côté client)
-    if (typeof window !== 'undefined') {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
-      window.addEventListener('resize', handleResize);
-      // Nettoyage du listener d'événement lors du démontage du composant
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    }
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const parser = new UAParser();
-      const userAgent = window.navigator.userAgent;
-      parser.setUA(userAgent);
-      const result = parser.getResult();
-
-      const device = result.device.type;
-      setDeviceType(device);
-    }
-  }, [deviceType]);
+  const windowSize = useScreenSize();
+  const deviceType = useTypeDevice();
 
   return (
     <>
@@ -56,9 +21,8 @@ export default function Forum() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {deviceType === "mobile" ? <HeaderMobile /> : <Header screenWidth={windowSize.width} />}
-      
-      <main className='container mx-auto'>
+      {deviceType === 'mobile' ? <HeaderMobile /> : <Header screenWidth={windowSize.width} />}
+      <main className={deviceType === 'mobile' ? "mob-container" : "container"}>
         <p>Largeur de la fenêtre en temps réel : {windowSize.width}px</p>
         <p>Hauteur de la fenêtre en temps réel : {windowSize.height}px</p>
         <p>Type d'appareil : {deviceType}</p>

@@ -92,6 +92,15 @@
   border: none;
   padding: 8px 15px ;
   border-radius: 30px;
+  cursor: pointer;
+}
+
+.addBtn:hover{
+  background-color: #0d809a;
+}
+
+.addBtn:active{
+  background-color: #024b5c;
 }
 
 
@@ -125,6 +134,14 @@
   }
   .addBtn{
     background-color: #0abab5;
+  }
+
+  .addBtn:hover{
+    background-color: #10c8c2;
+  }
+  
+  .addBtn:active{
+    background-color: #07a5a0;
   }
 
   .selected {

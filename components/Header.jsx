@@ -148,7 +148,7 @@ const Header = ({ screenWidth }) => {
                 </Link>
               </li>
               <li>
-                <Link href="/map">
+                <Link href="/publish">
                   <button className={styles.addBtn}>Publier</button>
                 </Link>
               </li>

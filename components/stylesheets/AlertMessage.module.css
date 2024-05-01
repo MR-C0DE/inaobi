@@ -1,0 +1,25 @@
+.container{
+    background-color: rgb(255, 184, 98);
+    color: black;
+    display: flex;
+    position: fixed;
+    bottom: 7rem;
+    right: .01rem;
+    font-weight: bold;
+    align-items: center;
+    padding: .2rem;
+    
+
+}
+
+.sign{
+    padding: 1rem;
+    background-color: rgb(255, 97, 97);
+    
+    
+    font-size: 2rem;
+    color: rgb(255, 208, 208);
+}
+.message{
+    padding: 0 .6rem;
+}

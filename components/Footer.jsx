@@ -1,8 +1,11 @@
 import React from 'react'
-
+import AlertMessage from './AlertMessage'
 const Footer = () => {
   return (
-    <div>...</div>
+    <div>
+
+      <AlertMessage message='Ce site est en construction.'/>
+    </div>
   )
 }
 

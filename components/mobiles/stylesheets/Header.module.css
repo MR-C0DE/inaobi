@@ -70,6 +70,14 @@
   border-radius: 30px;
 }
 
+.addBtn:hover{
+  background-color: #0d809a;
+}
+
+.addBtn:active{
+  background-color: #024b5c;
+}
+
 
 @media (prefers-color-scheme: dark) {
   .header {
@@ -82,6 +90,14 @@
   }
   .addBtn{
     background-color: #0abab5;
+  }
+
+  .addBtn:hover{
+    background-color: #10c8c2;
+  }
+  
+  .addBtn:active{
+    background-color: #07a5a0;
   }
 
   .selected {

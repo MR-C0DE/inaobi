@@ -1,4 +1,6 @@
 import React from 'react';
+
+
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import NavigationBar from '@/components/mobiles/NavigationBar';
@@ -8,7 +10,7 @@ import HeaderMobile from '@/components/mobiles/HeaderMobile';
 import { useScreenSize } from '@/contexts/ScreenSizeContext';
 import { useTypeDevice } from '@/contexts/DeviceTypeContext';
 
-export default function Test() {
+export default function Publish() {
   const windowSize = useScreenSize();
   const deviceType = useTypeDevice();
 
@@ -27,7 +29,7 @@ export default function Test() {
         <p>Hauteur de la fenêtre en temps réel : {windowSize.height}px</p>
         <p>Type d'appareil : {deviceType}</p>
         {/* Votre contenu local */}
-        Test
+        Local
       </main>
       <Footer />
       {deviceType === 'mobile' && <NavigationBar />}

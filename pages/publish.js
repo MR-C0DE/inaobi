@@ -9,6 +9,7 @@ import HeaderMobile from '@/components/mobiles/HeaderMobile';
 
 import { useScreenSize } from '@/contexts/ScreenSizeContext';
 import { useTypeDevice } from '@/contexts/DeviceTypeContext';
+import Poster from '@/components/publish/Poster';
 
 export default function Publish() {
   const windowSize = useScreenSize();
@@ -25,11 +26,7 @@ export default function Publish() {
 
       {deviceType === 'mobile' ? <HeaderMobile /> : <Header screenWidth={windowSize.width} />}
       <main className={deviceType === 'mobile' ? "mob-container" : "container"}>
-        <p>Largeur de la fenêtre en temps réel : {windowSize.width}px</p>
-        <p>Hauteur de la fenêtre en temps réel : {windowSize.height}px</p>
-        <p>Type d'appareil : {deviceType}</p>
-        {/* Votre contenu local */}
-        Local
+        <Poster />
       </main>
       <Footer />
       {deviceType === 'mobile' && <NavigationBar />}

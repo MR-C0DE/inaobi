@@ -1,0 +1,171 @@
+.forum {
+    margin: 20px;
+  }
+  
+  .title {
+    color: #000000;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .topicList {
+    
+  }
+  
+  .topic {
+    margin-bottom: 20px;
+    background-color: rgb(227, 227, 227);
+    padding: 2rem;
+  }
+
+  .topicHead{
+      display: flex;
+      gap: 30px;
+  }
+  .topicInfoHead{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  .topicHeadDetais{
+      display: flex;
+  }
+  .profilePhoto {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+  
+  .topicInfo {
+  
+  }
+  
+
+  .topicInfo  div{
+    display: flex;
+    gap:2rem;
+    align-items: center;
+  }
+  .subject {
+    color: #010101;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .username {
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .date {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .category {
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .views,
+  .reactions {
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .description {
+    color: rgb(70, 70, 70);
+    margin: 20px 0;
+  }
+  
+  .shareButton {
+    color: #067790;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .shareButton:hover {
+    color: #06536e;
+  }
+  
+
+  @media (prefers-color-scheme: dark) {
+    .categoriesTitle {
+        color: #0abab5;
+    }
+
+    .categoryList li:hover {
+        background-color: #313737;
+    }
+
+    .selected {
+        background-color: #2d3434;
+        color: #0abab5;
+    }
+
+
+      .topicList {
+        
+      }
+      
+      .topic {
+        margin-bottom: 20px;
+        background-color: rgb(34, 37, 38);
+        padding: 2rem;
+      }
+    
+  
+   
+  
+      
+  
+      .subject {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      
+      .username {
+        color: #d7d7d7;
+        font-size: 14px;
+      }
+      
+      .date {
+        color: #bbbbbb;
+        font-size: 14px;
+      }
+      
+      .category {
+        color: #ebebeb;
+        font-size: 14px;
+      }
+      
+      .views,
+      .reactions {
+        color: #bbbbbb;
+        margin-top: 5px;
+      }
+      
+      .description {
+        color: #e9e9e9;
+        margin: 20px 0;
+      }
+      
+      .shareButton {
+        color: #0abab5;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+      
+      .shareButton:hover {
+        color: #1bc6c0;
+      }
+}

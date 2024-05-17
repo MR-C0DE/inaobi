@@ -7,6 +7,7 @@ import HeaderMobile from '@/components/mobiles/HeaderMobile';
 
 import { useScreenSize } from '@/contexts/ScreenSizeContext';
 import { useTypeDevice } from '@/contexts/DeviceTypeContext';
+import ForumContent from '@/components/Forum/ForumContent';
 
 export default function Forum() {
   const windowSize = useScreenSize();
@@ -23,11 +24,7 @@ export default function Forum() {
 
       {deviceType === 'mobile' ? <HeaderMobile /> : <Header screenWidth={windowSize.width} />}
       <main className={deviceType === 'mobile' ? "mob-container" : "container"}>
-        <p>Largeur de la fenêtre en temps réel : {windowSize.width}px</p>
-        <p>Hauteur de la fenêtre en temps réel : {windowSize.height}px</p>
-        <p>Type d'appareil : {deviceType}</p>
-        {/* Votre contenu local */}
-        Forum
+        <ForumContent />
       </main>
       <Footer />
       {deviceType === 'mobile' && <NavigationBar />}

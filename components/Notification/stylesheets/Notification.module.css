@@ -1,0 +1,72 @@
+.notificationContainer {
+}
+
+.notificationContainer h2 {
+  color: #067790;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.filterDivider {
+  margin-bottom: 20px;
+  border-color: rgb(186, 215, 205);
+}
+
+.notificationCard {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.profileImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 10%;
+  margin-right: 15px;
+  object-fit: over;
+}
+
+.notificationContent {
+  width: 100%;
+}
+
+.notificationBeginer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.notificationType {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.notificationUser {
+  margin-bottom: 5px;
+}
+
+.notificationDate {
+  color: gray;
+}
+
+/* 0abab5 */
+@media (prefers-color-scheme: dark) {
+  .notificationContainer h2 {
+    color: #0abab5;
+  }
+
+  .filterDivider {
+    border-color: #353f3c;
+  }
+  .notificationCard {
+ 
+    border: none;
+    border-top: 1px solid rgb(51, 48, 48);
+
+  }
+}

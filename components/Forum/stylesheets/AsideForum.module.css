@@ -1,0 +1,66 @@
+.container {
+    /* Styles du conteneur */
+    padding-top: 1rem;
+}
+
+.button {
+    /* Styles du bouton "Créer un sujet" */
+    background-color: #067790;
+    color: #fff;
+    border: none;
+    padding: .8rem;
+    width: 10rem;
+    font-weight: 600;
+}
+
+.categoriesContainer {
+    /* Styles du conteneur des catégories */
+    width: 10rem;
+}
+
+.categoriesTitle {
+    color: #067790;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.categoryList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.categoryList li{
+    padding: 8px 0;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s;
+}
+
+.categoryList li:hover {
+    background-color: #dfe8ea;
+    padding: 8px;
+}
+
+.selected {
+    background-color: #e4eced;
+    color: #067790;
+    padding: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .categoriesTitle {
+        color: #0abab5;
+    }
+
+    .categoryList li:hover {
+        background-color: #313737;
+    }
+
+    .selected {
+        background-color: #2d3434;
+        color: #0abab5;
+    }
+}

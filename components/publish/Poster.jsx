@@ -1,119 +1,164 @@
-import React, { useState } from 'react';
-import styles from './stylesheets/Poster.module.css'; // Import des styles CSS
+import React, { useState } from "react";
+import styles from "./styleSheets/Poster.module.css";
 
-const Poster = ({ userProfile }) => {
-    const [text, setText] = useState('');
-    const [mediaPreview, setMediaPreview] = useState('');
-    const [media, setMedia] = useState(null);
-    const [category, setCategory] = useState('');
-    const [tags, setTags] = useState([]);
-    const [visibility, setVisibility] = useState('public');
-  
-    const handleTextChange = (e) => {
-      setText(e.target.value);
+const Poster = () => {
+  const [imageURL, setImageURL] = useState("");
+  const [imageSize, setImageSize] = useState("");
+  const [tags, setTags] = useState([]);
+  const [tagInput, setTagInput] = useState("");
+  const [fileInput, setFileInput] = useState(null);
+  const [category, setCategory] = useState("Publication");
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      setImageURL(reader.result);
     };
-  
-    const handleMediaChange = (e) => {
-      const file = e.target.files[0];
-      setMedia(file);
-      setMediaPreview(URL.createObjectURL(file)); // Afficher un aperçu de l'image sélectionnée
-    };
-  
-    const handleRemoveMedia = () => {
-      setMedia(null);
-      setMediaPreview('');
-    };
-  
-    const handleCategoryChange = (e) => {
-      setCategory(e.target.value);
-    };
-  
-    const handleTagsChange = (e) => {
-      const inputTags = e.target.value.split(',');
-      setTags(inputTags.map(tag => tag.trim()));
-    };
-  
-    const handleVisibilityChange = (e) => {
-      setVisibility(e.target.value);
-    };
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      // Envoyer les données de la publication au serveur
-      const postData = {
-        text,
-        media,
-        category,
-        tags,
-        visibility
-      };
-      console.log(postData);
-      // Réinitialiser le formulaire après l'envoi
-      setText('');
-      setMedia(null);
-      setMediaPreview('');
-      setCategory('');
-      setTags([]);
-      setVisibility('public');
-      // Afficher un message de confirmation ou rediriger l'utilisateur
-    };
-  
-    return (
-      <div className={styles.publishContainer}>
-        {userProfile && (
-          <div className={styles.userProfile}>
-            <img src={userProfile.avatar} alt="User avatar" className={styles.avatar} />
-            <p className={styles.userName}>{userProfile.name}</p>
-          </div>
-        )}
-        <h2>Nouvelle Publication</h2>
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <textarea
-            placeholder="Que voulez-vous partager ?"
-            value={text}
-            onChange={handleTextChange}
-            required
-            className={styles.textArea}
-          />
-          {mediaPreview && (
-            <div className={styles.mediaContainer}>
-              <img src={mediaPreview} alt="Media preview" className={styles.mediaPreview} />
-              <button type="button" onClick={handleRemoveMedia} className={styles.removeButton}>
-                Retirer
+
+    if (file) {
+      reader.readAsDataURL(file);
+      const fileSizeInBytes = file.size;
+      const fileSizeInKB = fileSizeInBytes / 1024;
+      setImageSize(`${fileSizeInKB.toFixed(2)} KB`);
+    }
+  };
+
+  const handleTagInput = (event) => {
+    setTagInput(event.target.value);
+  };
+
+  const addTag = () => {
+    if (tagInput.trim() !== "") {
+      setTags([...tags, tagInput]);
+      setTagInput("");
+    }
+  };
+
+  const removeTag = (index) => {
+    const newTags = [...tags];
+    newTags.splice(index, 1);
+    setTags(newTags);
+  };
+
+  const removeImage = () => {
+    setImageURL("");
+    setFileInput(null);
+  };
+
+  const handleButtonClick = () => {
+    if (fileInput) {
+      fileInput.click();
+    }
+  };
+
+  const handleCategorySelection = (selectedCategory) => {
+    setCategory(selectedCategory);
+  };
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.mediaSection}>
+        <h2>Média</h2>
+        <p>Ajoutez une image ou une photo à votre publication</p>
+
+        {imageURL && (
+          <div className={styles.imageContainer}>
+            <div className={styles.imageDetails}>
+              <img src={imageURL} alt="Image" />
+              <p>{`Taille: ${imageSize}`}</p>
+            </div>
+
+            <div >
+              <button onClick={removeImage} className={styles.detailsButton}>
+                Supprimer
               </button>
             </div>
-          )}
-          <label htmlFor="media" className={styles.mediaLabel}>
-            <span>Ajouter une photo ou une vidéo</span>
+          </div>
+        )}
+
+        {!imageURL && (
+          <div>
             <input
               type="file"
-              accept="image/*, video/*"
-              id="media"
-              onChange={handleMediaChange}
-              className={styles.fileInput}
+              accept="image/*"
+              onChange={handleImageChange}
+              style={{ display: "none" }}
+              ref={(input) => setFileInput(input)}
             />
-          </label>
-          <select value={category} onChange={handleCategoryChange} required className={styles.select}>
-            <option value="">Sélectionnez une catégorie</option>
-            <option value="categorie1">Catégorie 1</option>
-            <option value="categorie2">Catégorie 2</option>
-            <option value="categorie3">Catégorie 3</option>
-          </select>
-          <input
-            type="text"
-            placeholder="Ajoutez des tags (séparés par des virgules)"
-            value={tags}
-            onChange={handleTagsChange}
-            className={styles.input}
-          />
-          <select value={visibility} onChange={handleVisibilityChange} required className={styles.select}>
-            <option value="public">Public</option>
-            <option value="private">Privé</option>
-          </select>
-          <button type="submit" className={styles.submitButton}>Publier</button>
-        </form>
+            <button onClick={handleButtonClick} className={styles.addImageBtn}>
+              Ajouter une image
+            </button>
+          </div>
+        )}
       </div>
-    );
-  };
+
+      <div className={styles.detailSection}>
+        <h2>Ajouter un détail à votre publication</h2>
+        <div>
+        
+          <textarea
+            name="text"
+            id="text"
+            cols="30"
+            rows="10"
+            className={styles.textareaField}
+          ></textarea>
+        </div>
+        </div>
+        <div className={styles.detailSection}>
+          <h2>Tags</h2>
+          <div className={styles.tagsContainer}>
+            <input
+              type="text"
+              value={tagInput}
+              onChange={handleTagInput}
+              placeholder="Ajouter des tags..."
+              className={styles.inputField}
+            />
+            <button onClick={addTag} className={styles.addTagBtn}>
+              Ajouter un tag
+            </button>
+          </div>
+          <ul className={styles.tagList}>
+            {tags.map((tag, index) => (
+              <li key={index} className={styles.tag}>
+                <span>#{tag}</span> <button onClick={() => removeTag(index)}>X</button>
+              </li>
+            ))}
+          </ul>
+        
+          <h2>Catégorie <span>[{category}]</span></h2>
+          <div className={styles.categoriesContainer}>
+            <button
+              onClick={() => handleCategorySelection("Publication")}
+              className={styles.chooseCategorie}
+            >
+              Publication
+            </button>
+            <button
+              onClick={() => handleCategorySelection("Sondage")}
+              className={styles.chooseCategorie}
+            >
+              Sondage
+            </button>
+            <button
+              onClick={() => handleCategorySelection("Question politique")}
+              className={styles.chooseCategorie}
+            >
+              Question politique
+            </button>
+          </div>
+        </div>
+      
+
+      <div className={styles.buttonsContainer}>
+        <button>Annuler</button>
+        <button>Publier</button>
+      </div>
+    </div>
+  );
+};
 
 export default Poster;

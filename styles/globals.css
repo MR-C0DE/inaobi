@@ -2,10 +2,19 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: rgb(249, 249, 249);
+  font-size: 14px;
 }
+.wrapper{
 
+  
+  
+}
 .container{
   margin-top:  3.4rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 65rem;
+
   padding: .6rem;
 }
 
